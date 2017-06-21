@@ -7,11 +7,11 @@ angular.module('app', ['ui.router'])
 
         $stateProvider
             .state('login', {
-                url: '/',
+                url: '/login',
                 templateUrl: './views/login.html',
             })
             .state('home', {
-                url: '/home',
+                url: '/',
                 templateUrl: './views/home.html',
             })
 

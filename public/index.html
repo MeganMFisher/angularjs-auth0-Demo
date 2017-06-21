@@ -8,10 +8,16 @@
     </head>
     <body ng-controller="mainCtrl">
 
-        {{test}} {{test1}}
+    <nav>
+        <li ui-sref='login'>Login</li>
+        <li ui-sref='home'>Home</li>
+    </nav>
+
+    <ui-view></ui-view>
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js'></script>
     <script src='./js/app.js'></script>
     <script src='./js/mainCtrl.js'></script>
     <script src='./js/mainSrv.js'></script>

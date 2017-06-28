@@ -23,8 +23,7 @@ $scope.userFavorites;
         "favorite": favorite
     }
         mainSrv.postFavs(favoriteThing).then((response) => {
-
-        getUser()
+            getUser()
         })
     console.log(favoriteThing)
   }

@@ -107,6 +107,8 @@ app.get('/auth/logout', function (req, res) {
   res.redirect('/');
 })
 
+
+
 app.listen(3005, function () {
   console.log('Connected on 3005')
 })

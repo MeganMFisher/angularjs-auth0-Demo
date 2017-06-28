@@ -1,1 +1,18 @@
-<h1>HOME</h1>
+
+<section style='width: 100%; height: 100vh; display: flex; margin-top: 100px;'>
+<div style='width: 50%; height: 100vh;'>
+<h1 ng-click='addFavs("cake")'>CAKE</h1>
+<h1 ng-click='addFavs("pie")'>PIE</h1>
+<h1 ng-click='addFavs("ice cream")'>ICE CREAM</h1>
+<h1 ng-click='addFavs("cheesecake")'>CHEESECAKE</h1>
+</div>
+
+<div style='width: 50%; height: 100vh;'>
+    <h1>Your Favorites:</h1>
+    <div>
+        <!--<p>{{userFavorites.username}}</p>-->
+    <p>{{userFavorites.favorite}}</p>
+    </div>
+</div>
+
+</section>

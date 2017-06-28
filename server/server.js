@@ -39,7 +39,7 @@ passport.use(new Auth0Strategy({
     callbackURL: '/auth/callback'
   },
   function (accessToken, refreshToken, extraParams, profile, done) {
-    console.log(profile)
+
     var db = app.get('db')
     //Find user in database
     db.getUserByAuthId(profile.id).then(function (user) {
@@ -67,13 +67,24 @@ passport.serializeUser(function (userA, done) {
   done(null, userB); //PUTS 'USER' ON THE SESSION
 });
 
-//USER COMES FROM SESSION - THIS IS INVOKED FOR EVERY ENDPOINT
+// USER COMES FROM SESSION - THIS IS INVOKED FOR EVERY ENDPOINT
+// passport.deserializeUser(function (userB, done) {
+//   var userC = userB;
+//   //Things you might do here :
+//   // Query the database with the user id, get other information to put on req.user
+//   done(null, userC); //PUTS 'USER' ON REQ.USER
+// });
+
+
 passport.deserializeUser(function (userB, done) {
   var userC = userB;
-  //Things you might do here :
-  // Query the database with the user id, get other information to put on req.user
-  done(null, userC); //PUTS 'USER' ON REQ.USER
+  app.get('db').getUserAndFavs(userC.authid).then(function (favorites){
+    userC.favorites = favorites;
+  done(null, userC);
+//move done() inside of promise .then or else it will fire before it gets a response
+  })
 });
+
 
 
 
@@ -93,12 +104,14 @@ app.get('/auth/callback',
     successRedirect: '/'
   }),
   function (req, res) {
+    
     res.status(200).send(req.user);
   })
 
 app.get('/auth/me', function (req, res) {
   if (!req.user) return res.sendStatus(404);
   //THIS IS WHATEVER VALUE WE GOT FROM userC variable above.
+  console.log(req.user, " AHHHHHHHHHHHHHHHH")
   res.status(200).send(req.user);
 })
 
@@ -106,6 +119,9 @@ app.get('/auth/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 })
+
+
+app.post('/postFav', controller.postFav)
 
 
 

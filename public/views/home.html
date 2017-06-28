@@ -9,9 +9,8 @@
 
 <div style='width: 50%; height: 100vh;'>
     <h1>Your Favorites:</h1>
-    <div>
-        <!--<p>{{userFavorites.username}}</p>-->
-    <p>{{userFavorites.favorite}}</p>
+    <div ng-repeat='fav in userFavorites.favorites'>
+        <p>{{fav.favorite}}</p>
     </div>
 </div>
 

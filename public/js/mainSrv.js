@@ -29,6 +29,10 @@ angular.module('app').service('mainSrv', function($http){
     })
   }
 
+  this.postFavs = function(favs) {
+      return $http.post('/postFav', favs)
+  }
+
 //   this.logout = function() {
 //     return $http({
 //       method: 'GET',

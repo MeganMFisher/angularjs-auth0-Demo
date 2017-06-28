@@ -1,4 +1,3 @@
-select users.username, favorites.users_authid, favorites.favorite
+select *
 from users
-join favorites on users.authid = favorites.users_authid
 where authid = $1;

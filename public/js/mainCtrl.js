@@ -1,10 +1,12 @@
 angular.module('app').controller('mainCtrl', function($scope, mainSrv){
 
-    $scope.userFavorites;
+$scope.userFavorites;
+// $scope.user;
 
   function getUser() {
     mainSrv.getUser().then(function(user) {
         $scope.userFavorites = user;
+        // $scope.userFavorites = user.favorites;
         console.log(user)
       if (user) $scope.user = user.username;
       else   $scope.user = 'NOT LOGGED IN';
@@ -14,28 +16,19 @@ angular.module('app').controller('mainCtrl', function($scope, mainSrv){
 
   getUser();
 
+
     $scope.addFavs = function(favorite) {
     var favoriteThing = {
-        "users_authid": $scope.userFavorites.users_authid,
+        "authid": $scope.userFavorites.authid,
         "favorite": favorite
     }
+        mainSrv.postFavs(favoriteThing).then((response) => {
 
+        getUser()
+        })
     console.log(favoriteThing)
   }
 
 
-
-//   $scope.loginLocal = function(username, password) {
-//     console.log('Logging in with', username, password);
-//     mainSrv.loginLocal({
-//       username: username,
-//       password: password
-//     })
-//     .then(function(res) {
-//       getUser();
-//     })
-//   }
-
-//   $scope.logout = mainSrv.logout;
 
 })

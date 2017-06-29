@@ -84,14 +84,6 @@ passport.deserializeUser(function (userB, done) {
 app.get('/auth', passport.authenticate('auth0'));
 
 
-//**************************//
-//To force specific provider://
-//**************************//
-// app.get('/login/google',
-//   passport.authenticate('auth0', {connection: 'google-oauth2'}), function (req, res) {
-//   res.redirect("/");
-// });
-
 app.get('/auth/callback',
   passport.authenticate('auth0', {
     successRedirect: '/'
@@ -109,12 +101,13 @@ app.get('/auth/me', function (req, res) {
 
 app.get('/auth/logout', function (req, res) {
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 })
 
 
 app.post('/postFav', controller.postFav)
 app.delete('/deleteFav/:notFav', controller.deleteFav)
+app.get('/getOptions', controller.getOptions)
 
 
 

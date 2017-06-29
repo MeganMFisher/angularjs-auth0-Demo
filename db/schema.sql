@@ -14,6 +14,14 @@ CREATE TABLE favorites
   favorite varchar
 );
 
+CREATE TABLE options 
+(
+  id serial primary key,
+  option varchar
+);
+
+insert into options(option) values('Cake'), ('CheeseCake'), ('Pie'), ('Ice Cream')
+
 -- insert into favorites(users_authid, favorite) values('google-oauth2|110302264893432868050', 'Cake')
 
 

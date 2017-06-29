@@ -14,6 +14,12 @@ module.exports = {
         req.app.get('db').deleteFav(req.params.notFav).then((response) => {
             res.send('Deleted!')
         })
+    },
+
+    getOptions: (req, res) => {
+        req.app.get('db').getOptions().then((response) => {
+            res.send(response)
+        })
     }
 
 }

@@ -1,0 +1,82 @@
+body {
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    line-height: 2;
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+nav div {
+    width: 250px;
+    font-weight: light;
+    height: 100%;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/********************************************/
+
+.loginButton {
+    padding: 15px 30px; 
+    background: #245;
+    border-radius: 5px;
+}
+
+
+/********************************************/
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+}
+
+.favoriteOptions {
+    width: 50%;
+    height: 50%;
+    padding: 50px 50px;
+}
+
+.optionsList {
+    width: 150px;
+    height: 50px;
+    padding: 10px 10px;
+    background: #245;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.favoriteList {
+    width: 50%;
+    height: 50%;
+    padding: 50px 50px;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: space-around;*/
+}
+
+.myFavorites {
+    width: 150px;
+    height: 50px;
+    padding: 10px 10px;
+    background: #245;
+    color: white;
+    margin-bottom: 10px;
+}

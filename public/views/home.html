@@ -1,15 +1,14 @@
-
-<section style='width: 100%; height: 100vh; display: flex; margin-top: 100px;'>
-<div style='width: 50%; height: 100vh;'>
-<h1 ng-click='addFavs("cake")'>CAKE</h1>
-<h1 ng-click='addFavs("pie")'>PIE</h1>
-<h1 ng-click='addFavs("ice cream")'>ICE CREAM</h1>
-<h1 ng-click='addFavs("cheesecake")'>CHEESECAKE</h1>
+<section>
+<div class='favoriteOptions'>
+<h1>Options:</h1>
+<div class='myFavorites' ng-click='addFavs(opt.option)' ng-repeat='opt in optionList'>
+    {{opt.option}}
+</div>
 </div>
 
-<div style='width: 50%; height: 100vh;'>
-    <h1>Your Favorites:</h1>
-    <div ng-repeat='fav in userFavorites.favorites' style='padding: 10px 10px; background: blue; margin-bottom: 10px; width: 100px; display: flex;' ng-click='deleteFav(fav.favorite)'>
+<div class='favoriteList'>
+    <h1>Favorites:</h1>
+    <div class='myFavorites' ng-repeat='fav in userFavorites.favorites' ng-click='deleteFav(fav.favorite)'>
         <p>{{fav.favorite}}</p>
     </div>
 </div>

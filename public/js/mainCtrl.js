@@ -14,7 +14,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
 
 
     $scope.addFavs = (favorite) => {
-        console.log(favorite)
         var favFound = false
         for (var i = 0; i < $scope.userFavorites.favorites.length; i++) {
             if ($scope.userFavorites.favorites[i].favorite == favorite) {

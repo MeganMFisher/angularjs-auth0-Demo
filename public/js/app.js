@@ -2,16 +2,16 @@ angular.module('app', ['ui.router'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/home');
 
 
         $stateProvider
             .state('login', {
-                url: '/login',
+                url: '/',
                 templateUrl: './views/login.html',
             })
             .state('home', {
-                url: '/',
+                url: '/home',
                 templateUrl: './views/home.html',
             })
 

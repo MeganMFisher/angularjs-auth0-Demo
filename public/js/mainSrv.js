@@ -33,9 +33,7 @@ angular.module('app').service('mainSrv', function($http){
       return $http.post('/postFav', favs)
   }
 
-  this.deleteFav = (fav) => {
-    var notFav = fav.notFav
-    console.log(notFav)
+  this.deleteFav = (notFav) => {
     return $http.delete('/deleteFav/' + notFav)
   }
 

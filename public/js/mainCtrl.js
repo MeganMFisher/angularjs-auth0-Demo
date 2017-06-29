@@ -17,18 +17,14 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
     getUser();
 
 
-    $scope.addFavs = function (favorite) {
-
+    $scope.addFavs = (favorite) => {
         var favFound = false
         for (var i = 0; i < $scope.userFavorites.favorites.length; i++) {
-
             if ($scope.userFavorites.favorites[i].favorite == favorite) {
                 favFound = true
                 break
             }
         }
-
-
         if (!favFound) {
             var favoriteThing = {
                 "authid": $scope.userFavorites.authid,
@@ -37,8 +33,17 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSrv) {
             mainSrv.postFavs(favoriteThing).then((response) => {
                 getUser()
             })
-            console.log(favoriteThing)
         }
+    }
+
+    $scope.deleteFav = (favorite) => {
+        var notFavoriteThing = {
+            "notFav": favorite
+        }
+        console.log(notFavoriteThing)
+        mainSrv.deleteFav(notFavoriteThing).then((response) => {
+            getUser()
+        })
     }
 
 

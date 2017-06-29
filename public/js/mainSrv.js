@@ -16,7 +16,7 @@ angular.module('app').service('mainSrv', function($http){
 //     })
 //   }
 
-  this.getUser = function() {
+  this.getUser = () => {
     return $http({
       method: 'GET',
       url: baseUrl + '/auth/me'
@@ -29,8 +29,14 @@ angular.module('app').service('mainSrv', function($http){
     })
   }
 
-  this.postFavs = function(favs) {
+  this.postFavs = (favs) => {
       return $http.post('/postFav', favs)
+  }
+
+  this.deleteFav = (fav) => {
+    var notFav = fav.notFav
+    console.log(notFav)
+    return $http.delete('/deleteFav/' + notFav)
   }
 
 //   this.logout = function() {

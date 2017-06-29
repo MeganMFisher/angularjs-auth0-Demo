@@ -9,7 +9,7 @@
 
 <div style='width: 50%; height: 100vh;'>
     <h1>Your Favorites:</h1>
-    <div ng-repeat='fav in userFavorites.favorites'>
+    <div ng-repeat='fav in userFavorites.favorites' style='padding: 10px 10px; background: blue; margin-bottom: 10px; width: 100px; display: flex;' ng-click='deleteFav(fav.favorite)'>
         <p>{{fav.favorite}}</p>
     </div>
 </div>

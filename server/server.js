@@ -114,6 +114,7 @@ app.get('/auth/logout', function (req, res) {
 
 
 app.post('/postFav', controller.postFav)
+app.delete('/deleteFav/:notFav', controller.deleteFav)
 
 
 
